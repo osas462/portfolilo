@@ -1,0 +1,39 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+{% block title %}
+Edit Mudia
+{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Edit Mudia</li>
+      </ol>
+
+      {% include 'backend/sidebar.html' %}
+
+<div class="col-md-8 add_top_30">
+    <div class="row">
+        
+        <div class="form-group">
+            <form method="post" class="col-12">
+                {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+                {% csrf_token %}
+                {{ edit_key.as_p }}
+                <input type="submit" value="Edit" class="btn btn-success" style="cursor: pointer;">
+            </form>
+        </div>
+    </div>    
+</div>
+
+{% endblock %}

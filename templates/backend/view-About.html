@@ -1,0 +1,69 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+View-About
+{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Add About</li>
+      </ol>
+      {% include 'backend/sidebar.html' %}
+		<div class="box_general padding_bottom">
+			<div class="header_box version_2">
+                <div class="row">
+                    <h2>View About</h2>
+                        <table class="table table-bordered">
+                            <tr>
+                            <th>S/N</th>
+                            <th>about Title</th>
+                            <th>about Content</th>
+                            <th>about Image</th>
+                            <th>Date</th>
+                            <th>Posted By</th>
+                            <!-- <th>Category</th> -->
+                            <th colspan="3">Action</th>
+                            </tr>
+                
+                            {% if list %}
+                            {% for D in list %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ D.about_title }}</td>
+                                    <td>{{ D.about_desription|truncatewords:30 }}</td>
+                                    <td><img src="{{ D.my_img4}}" width="50" height="50" alt=""></td>
+                                    <td>{{ D.date  }}</td>
+                                    <td>{{ D.user.username  }}</td>
+                                    <!-- <td>
+                                        {% for c in l.cat_id.all %}
+                                            {{ c.cat.cat_name}}
+                                        {% endfor %}
+                                    </td> -->
+                                    <td>
+                                    <a href="{% url 'backend:edit_About' D.id %}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'backend:view_Aboutdetails' D.id %}">View</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'backend:delete_About' D.id %}">Delete</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            {% endif %}    
+                        </table>
+                        
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

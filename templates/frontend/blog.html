@@ -1,0 +1,71 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+blog
+{% endblock %}
+
+{% block content %}
+
+  <div class="container-fluid fh5co-home-banner">
+    <div class="card"> <img class="card-img" src="{% static 'frontend/img/momdad.jpg' %}" alt="">
+      <div class="card-img-overlay">
+        <div class="center-text">
+          <h2 class="card-title">We always keep you informed</h2>
+          <a href="#" class="btn">
+            <svg width="201" height="51" viewBox="0 0 201 51">
+              <defs>
+                <style>
+                .cls-1 {
+                  fill: none;
+                  stroke-width: 1px;
+                  stroke: url(#linear-gradient);
+                }
+              </style>
+              <linearGradient id="linear-gradient" x1="140.508" y1="50.5" x2="60.492" y2="0.5" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#e90e65"/>
+                <stop offset="1" stop-color="#fff"/>
+              </linearGradient>
+            </defs>
+            <rect id="Rounded_Rectangle_1" data-name="Rounded Rectangle 1" class="cls-1" x="0.5" y="0.5" width="200" height="50" rx="25" ry="25"/>
+          </svg>
+        Explore</a> </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Blog content section -->
+  <section class="fh5co-blog-content">
+    <div class="blog-content-bckg">
+      <div class="blog-content-inner">
+        <div class="container-fluid">
+          <h2 class="card-title">Our latest blog news</h2>
+          {% if most_recent %}
+          {% for g in most_recent %}
+          <div class="row single-blog">
+            <div class="col-xl-4 col-lg-12 single-blog__img">
+              <img class="card-img w-100" src="{{g.my_img2}}" alt="">
+            </div>
+            <div class="col-xl-8 col-lg-12 single-blog__text">
+              <h2>Lorem ipsum dolor sit amet</h2>
+              <p>{{g.blog_desription }}</p>
+              <p>{{g.blog_desription }}</p>
+            </div>
+          </div>
+
+
+          {% endfor %}
+
+          {% endif %}
+         
+ 
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Blog content section end -->
+
+
+{% endblock %}

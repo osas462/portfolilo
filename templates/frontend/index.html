@@ -1,0 +1,248 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+Mudia
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid fh5co-home-banner">
+      <div class="card"> <img class="card-img" src="{% static 'frontend/img/momdad 1.jpg' %}" alt="">
+      <div class="card-img-overlay">
+        <div class="center-text">
+          <h2 class="card-title">It Is Your Girl Mudia</h2>
+          <h3 style="color:white;" ><marquee>CEO Yomiformudia,Web Developer,Web Designer,Frontend Developer,Graphic Designer,Accountant</marquee></h3>  
+          <a href="#" class="btn">
+            <svg width="201" height="51" viewBox="0 0 201 51">
+              <defs>
+                <style>
+                .cls-1 {
+                  fill: none;
+                  stroke-width: 1px;
+                  stroke: url(#linear-gradient);
+                }
+              </style>
+              <linearGradient id="linear-gradient" x1="140.508" y1="50.5" x2="60.492" y2="0.5" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#e90e65"/>
+                <stop offset="1" stop-color="#fff"/>
+              </linearGradient>
+            </defs>
+            <rect id="Rounded_Rectangle_1" data-name="Rounded Rectangle 1" class="cls-1" x="0.5" y="0.5" width="200" height="50" rx="25" ry="25"/>
+          </svg>
+        Explore</a> </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid fh5co-two-img">
+    <div class="row">
+      <div class="col-sm-6 pr-0 pl-0">
+        <div class="card"> <img class="card-img" src="{% static 'frontend/img/mom.jpg' %}" alt="" style="height:500px;">
+          <div class="card-img-overlay"> </div>
+        </div>
+      </div>
+      <div class="col-sm-6 pr-0 pl-0">
+        <div class="card"> <img class="card-img" src="{% static 'frontend/img/dad.jpg' %}" alt="" style="height:500px;">
+          <div class="card-img-overlay"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid fh5co-recent-work">
+    <div class="container contact-pop">
+     
+        <div class="row">
+          {% if pc %}
+          {% for c in pc %}
+          <div class="col-md-6  pr-0">
+            <div class="card" > <img class="card-img w-100" src="{{ c.my_img5 }}" alt="" >
+              <div class="card-img-overlay"> </div>
+            </div>
+          </div>
+          <div class="col-md-6 pl-0" id="about">
+            <div class="content">
+              <h3>{{ c.pc_title }}</h3>
+              <h4>{{ c.pc_title }}</h4>
+              <hr />
+              <p>{{ c.pc_desription }}</p>
+              <a href="" class="btn">CONTACT</a> </div>
+            </div>
+          </div> 
+          {% endfor %}
+          {% endif %}
+        
+        </div>
+       
+      <div class="container recent" id="activity">
+        <div class="row">
+          <h2>Recent works</h2>
+          <div class="owl-carousel owl-carousel2 owl-theme">
+              {% if add %}
+                {% for p in add %}
+                <div class="card" style="height:500px;"> 
+                <img class="card-img" src="{{ p.my_img1 }}" alt="" style="height:500px;">
+                  <div class="card-img-overlay"> 
+                    <!-- <a href="#"><img src="{{ p.my_img1 }}" class="heart" alt="heart icon"></a> -->
+                    <div class="bottom-text">
+                      <h5 class="card-title">{{ p.add_title }}</h5>
+                      <p class="card-text">{{ p.add_desription }}</p>
+                    </div>
+                  </div>
+              </div>
+                {% endfor %}
+              {% endif %} 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid recent fh5co-portfolio" id="portfolio">
+    <div class="container">
+      <div class="row">
+        <h2>Portfolios</h2>
+        <div class="owl-carousel owl-carousel4 owl-theme">
+          {% if port %}
+          {% for a in port %}
+          <div>
+            <div class="card"> <img class="card-img" src="{{ a.my_img }}" alt=""  style="height:500px;">
+              <div class="card-img-overlay">
+                <div class="bottom-text">
+                  <h5 class="card-title">{{a.port_title }}</h5> 
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif%}
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid fh5co-recent-work activity">
+    <div class="container recent">
+      <div class="row">
+        <h2>Activity of the month</h2>
+        <div class="owl-carousel owl-carousel3 owl-theme">
+          {% if pst %}
+          {% for t in pst %}
+          <div>
+            <div class="card"> <img class="card-img" src="{{ t.my_img3 }}" alt="">
+              <div class="card-img-overlay">
+                <div class="bottom-text">
+                  <h5 class="card-title">{{t.pst_title }}</h5>
+                  <a href="#">Read more <img src="{% static 'frontend/img/double-right.svg' %}" alt=""></a> 
+                </div>
+              </div>
+          
+            </div>
+          </div>
+          {% endfor %}
+          {% endif%}
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid fh5co-about-me" id="testimonial">
+    <!-- <div id="my-carousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="card"> <img class="card-img d-block w-100" src="{% static 'frontend/img/three.jpg' %}" alt="">
+          <div class="card-img-overlay">
+            <h2>People says about me</h2>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-caption d-md-block"> <img src="assets/img/quote-icon.png" alt="">
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
+          </div>
+        </div>
+        <div class="carousel-item active">
+          <div class="carousel-caption d-md-block"> <img src="assets/img/quote-icon.png" alt="">
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-caption d-md-block"> <img src="assets/img/quote-icon.png" alt="">
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
+          </div>
+        </div>
+      </div>
+      <ol class="carousel-indicators">
+        <li data-target="#my-carousel" data-slide-to="0" > <img class="align-self-start mr-3 rounded-circle"src="{% static 'frontend/img/mudia 2.jpg' %}" alt="" style="height:150px; width:150px "> <span>Mudia Baby</span> </li>
+        <li class="active" data-target="#my-carousel" data-slide-to="1" aria-current="location"> <img class="align-self-start mr-3 rounded-circle" src="{% static 'frontend/img/mudia 6.jpg' %}" alt="" style="height:150px; width:150px "> <span>Mudi Love</span> </li>
+        <li data-target="#my-carousel" data-slide-to="2"> <img class="align-self-start mr-3 rounded-circle" src="{% static 'frontend/img/mudia 5.jpg' %}" alt="" style="height:150px; width:150px"> <span>Mudi Mudi</span> </li>
+      </ol>
+    </div> -->
+  </div>
+ 
+  <div class="container-fluid fh5co-insta-feed activity">
+    <div class="container recent">
+      <div class="row mb-5 pb-5">
+        <div class="col-lg-6">
+          <div class="twit-box">
+            <div class="media mb-3"> <img class="align-self-start mr-3 rounded-circle" src="{% static 'frontend/img/mudia 6.jpg' %}" alt=""  style="height:150px; width:150px ">
+              <div class="media-body">
+                <h5 class="mb-0 mt-3">Mudia</h5>
+                <p>@developer</p>
+              </div>
+            </div>
+            <p class="text-justify"> “Sed ut perspiciatis unde omnis iste nats error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut. </p>
+            <div class="clearfix"> <a href="#" class="btn btn-primary mt-2 float-right">Follow</a> </div>
+          </div>
+        </div>
+        <div class="col-lg-6 feed-caro">
+          <h2>Instagram feed</h2>
+          <div class="owl-carousel owl-carousel4 owl-theme">
+            {% if about %}
+            {% for o in about %}
+            <div>
+              <div class="card"> <img class="card-img" src="{{ o.my_img4 }}" alt="" style="height:400px;">
+                <div class="card-img-overlay"> </div>
+              </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="text-center d-block">Find me on social media</h2>
+      <div class="row social-links">
+        <ul class="nav mx-auto">
+          <li class="nav-item"> <a class="nav-link" href="https://www.facebook.com/fh5co"><img src="{% static 'frontend/img/facebook.png' %}" alt=""></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="https://twitter.com/fh5co"><img src="{% static 'frontend/img/twitter.png' %}" alt=""></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#"><img src="{% static 'frontend/img/pinterest.png' %}" alt=""></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#"><img src="{% static 'frontend/img/google-plus.png' %}" alt=""></a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- <div class="container-fluid recent fh5co-portfolio" id="portfolio">
+    <div class="container">
+      <h2>Portfolios</h2>
+      <div class="row">
+
+        {% if port %}
+        {% for a in port %}
+        <div class="col-lg-6 feed-caro">
+          <div class="card"> <img class="card-img" width="20%" src="{{ a.my_img }}" alt="">
+            <div class=""> <a href="#"><img src="{{ a.my_img }}" class="heart" alt="heart icon"></a>
+              <div class="bottom-text">
+                <h5 class="card-title">Natural site</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+       {% endfor %}
+        {% endif%}
+      
+      </div>
+    </div>
+  </div> -->
+ {% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+View-Mudia
+{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Add Mudia</li>
+      </ol>
+      {% include 'backend/sidebar.html' %}
+		<div class="box_general padding_bottom">
+			<div class="header_box version_2">
+                <div class="row">
+                    <h2>View Mudia</h2>
+                        <table class="table table-bordered">
+                            <tr>
+                            <th>S/N</th>
+                            <th>Pst Title</th>
+                            <th>Pst Content</th>
+                            <th>Pst Image</th>
+                            <th>Date</th>
+                            <th>Posted By</th>
+                            <!-- <th>Category</th> -->
+                            <th colspan="3">Action</th>
+                            </tr>
+                
+                            {% if list %}
+                            {% for M in list %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ M.pst_title }}</td>
+                                    <td>{{ M.pst_desription|truncatewords:30 }}</td>
+                                    <td><img src="{{ M.my_img3}}" width="50" height="50" alt=""></td>
+                                    <td>{{ M.date  }}</td>
+                                    <td>{{ M.user.username  }}</td>
+                                    <!-- <td>
+                                        {% for c in l.cat_id.all %}
+                                            {{ c.cat.cat_name}}
+                                        {% endfor %}
+                                    </td> -->
+                                    <td>
+                                    <a href="{% url 'backend:edit_Mudia' M.id %}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'backend:view_Mudiadetails' M.id %}">View</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'backend:delete_Mudia' M.id %}">Delete</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            {% endif %}    
+                        </table>
+                        
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

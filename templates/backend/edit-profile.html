@@ -1,0 +1,41 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+user-profile
+{% endblock %}
+
+{% block content %}
+
+  <!-- /Navigation-->
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Edit Profile</li>
+      </ol>
+
+      {% include 'backend/sidebar.html' %}
+
+<div class="col-md-8 add_top_30">
+    <div class="row">
+        
+        <div class="col-md-6">
+            <form method="post">
+                {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+                {% csrf_token %}
+                {{ edit_key.as_p }}
+                <input type="submit" value="Edit" class="btn btn-success">
+            </form>
+        </div>
+    </div>    
+</div>
+{% endblock %}		

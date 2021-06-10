@@ -1,0 +1,55 @@
+from django.urls import path
+from django.conf.urls import url 
+from backend import views
+app_name='backend'
+
+urlpatterns = [
+    path('',views.register, name='register'),
+    path('logout-page/', views.logout_view, name='logout_view'),
+    path('login-page/', views.login_view, name='login_view'),
+    path('dashboard-page/', views.dashboard, name='dashboard'),
+    path('edit-profile-page/', views.edit_newform, name='edit_newform'),
+    path('bookings-page/', views.bookings, name='bookings'),
+    path('add_listing-page/', views.add_listing, name='add_listing'),
+    path('bookmarks-page/', views.bookmarks, name='bookmarks'),
+    path('reviews-page/', views.reviews, name='reviews'),
+    path('tables-page/', views.tables, name='tables'),
+    path('user_profile-page/', views.user_profile, name='user_profile'),
+    path('charts-page/', views.charts, name='charts'),
+    path('change_password-page/', views.reset, name='change_password'),
+    path('blog_form/', views.blog_form, name='blog_form'),
+    path('edit_blog/<int:blog_id>', views.edit_blog, name='edit_blog'),
+    path('view_blog/>', views.view_blog, name='view_blog'),
+    path('delete_blog/<int:blog_id>', views.delete_blog, name='delete_blog'),
+    path('view_blogdetails/<int:pk>', views.view_blogdetails, name='view_blogdetails'),
+    path('pass_form/', views.pass_form, name='pass_form'),
+    path('password_reset/', views.password_reset_request, name='password_reset_request'),
+    path('Portfolio_form/', views.Portfolio_form, name='Portfolio_form'),
+    path('edit_portfolio_/<int:port_id>', views.edit_portfolio, name='edit_portfolio'),
+    path('view_Portfolio/>', views.view_Portfolio, name='view_Portfolio'),
+    path('delete-Portfolio/<int:port_id>', views.delete_Portfolio, name='delete_Portfolio'),
+    path('view_Portfoliodetails/<int:pk>', views.view_Portfoliodetails, name='view_Portfoliodetails'),
+    path('Post_form/', views.Post_form, name='Post_form'),
+    path('edit_Post_/<int:post_id>', views.edit_Post, name='edit_Post'),
+    path('view_Post/>', views.view_Post, name='view_Post'),
+    path('delete_Post/<int:post_id>', views.delete_Post, name='delete_Post'),
+    path('view_Postdetails/<int:pk>', views.view_Postdetails, name='view_Postdetails'),
+    path('Mudia_form/', views.Mudia_form, name='Mudia_form'),
+    path('edit_Mudia_/<int:pst_id>', views.edit_Mudia, name='edit_Mudia'),
+    path('view_Mudia/>', views.view_Mudia, name='view_Mudia'),
+    path('delete-Mudia/<int:pst_id>', views.delete_Mudia, name='delete_Mudia'),
+    path('view_Mudiadetails/<int:pk>', views.view_Mudiadetails, name='view_Mudiadetails'),
+    path('About_form/', views.About_form, name='About_form'),
+    path('edit_About_/<int:about_id>', views.edit_About, name='edit_About'),
+    path('view_About/>', views.view_About, name='view_About'),
+    path('delete-About/<int:about_id>', views.delete_About, name='delete_About'),
+    path('view_Aboutdetails/<int:pk>', views.view_Aboutdetails, name='view_Aboutdetails'),
+    path('Addpic_form/', views.Addpic_form, name='Addpic_form'),
+    path('edit_Addpic_/<int:pc_id>', views.edit_Addpic, name='edit_Addpic'),
+    path('view_Addpic/>', views.view_Addpic, name='view_Addpic'),
+    path('delete-Addpic/<int:pc_id>', views.delete_Addpic, name='delete_Addpic'),
+    path('view_Addpicdetails/<int:pk>', views.view_Addpicdetails, name='view_Addpicdetails'),
+    
+    
+
+]

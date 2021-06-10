@@ -1,0 +1,44 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+ Pass form
+{% endblock %}
+
+
+<body class="fixed-nav sticky-footer" id="page-top">
+{% block content %}
+  <!-- /Navigation-->
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active">Change Password</li>
+            </ol>
+            <div class="box_general padding_bottom" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: oblique;">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+                
+                <form method="post" >
+                    {% csrf_token %}
+                    {{ pass_key.as_p }}
+                        <input type="submit" value="Change Password" class="btn btn-success">
+                </form>
+            </div>
+            
+
+        </div>
+    </div>
+    		
+            
+        
+       
+{% endblock %}
+</body>

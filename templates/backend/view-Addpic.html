@@ -1,0 +1,69 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+View-Addpic
+{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Add Addpic</li>
+      </ol>
+      {% include 'backend/sidebar.html' %}
+		<div class="box_general padding_bottom">
+			<div class="header_box version_2">
+                <div class="row">
+                    <h2>View Addpic</h2>
+                        <table class="table table-bordered">
+                            <tr>
+                            <th>S/N</th>
+                            <th>Pc Title</th>
+                            <th>Pc Content</th>
+                            <th>Pc Image</th>
+                            <th>Date</th>
+                            <th>Posted By</th>
+                            <!-- <th>Category</th> -->
+                            <th colspan="3">Action</th>
+                            </tr>
+                
+                            {% if list %}
+                            {% for U in list %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ U.pc_title }}</td>
+                                    <td>{{ U.pc_desription|truncatewords:30 }}</td>
+                                    <td><img src="{{ U.my_img5}}" width="50" height="50" alt=""></td>
+                                    <td>{{ U.date  }}</td>
+                                    <td>{{ U.user.username  }}</td>
+                                    <!-- <td>
+                                        {% for c in l.cat_id.all %}
+                                            {{ c.cat.cat_name}}
+                                        {% endfor %}
+                                    </td> -->
+                                    <td>
+                                    <a href="{% url 'backend:edit_Addpic' U.id %}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'backend:view_Addpicdetails' U.id %}">View</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'backend:delete_Addpic' U.id %}">Delete</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            {% endif %}    
+                        </table>
+                        
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

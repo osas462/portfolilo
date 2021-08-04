@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from frontend.models import *
 from django.http import HttpResponse
- 
+from django.shortcuts import render, redirect,get_object_or_404
 
 # for sending mail import
 from django.conf import settings
@@ -106,3 +106,28 @@ def filter_data(request):
     else:
         query_form = FilterForm()
     return render(request, 'frontend/filter.html', {'qf':query_form}) 
+
+def blogdetails(request, pk):
+    single_post = get_object_or_404(Blog, pk=pk)
+    if request.method == 'POST':
+        name = request.POST.get('name')   
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        subject = 'Contact Us Information'
+        context = {
+            'name':name,
+            'email':email,
+            'message':message
+        }
+        html_message = render_to_string('frontend/mail-template.html', context)
+        plain_message = strip_tags(html_message)
+        from_email = 'From <ogunburebusayo.j@gmail.com>'
+        send = mail.send_mail(subject, plain_message, from_email, [
+                    'ogunburebusayo.j@gmail.com', email], html_message=html_message)
+        if send:
+            messages.success(request, 'Email sent')
+        else:
+            messages.error(request, 'Mail not sent')
+
+          
+    return render(request, 'frontend/blogdetails.html', {'sipst':single_post})

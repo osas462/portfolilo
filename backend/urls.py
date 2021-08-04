@@ -49,6 +49,7 @@ urlpatterns = [
     path('view_Addpic/>', views.view_Addpic, name='view_Addpic'),
     path('delete-Addpic/<int:pc_id>', views.delete_Addpic, name='delete_Addpic'),
     path('view_Addpicdetails/<int:pk>', views.view_Addpicdetails, name='view_Addpicdetails'),
+    path('password_reset/', views.password_reset_request, name='password_reset_request'),
     
     
 

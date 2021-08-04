@@ -23,6 +23,7 @@ CRISPY_TEMPLATE_PACK = 'uni_form'
 
 
 
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -31,7 +32,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'ogunburebusayo.j@gmail.com'
 DEFAULT_FROM_EMAIL = 'ogunburebusayo.j@gmail.com'
 SERVER_EMAIL = 'ogunburebusayo.j@gmail.com'
-EMAIL_HOST_PASSWORD = 'bussyboo98'
+EMAIL_HOST_PASSWORD = 'bussyboo230498'
 
 
 MESSAGE_TAGS = {
@@ -51,7 +52,7 @@ SECRET_KEY = 'cdp)7n)$-u^nk=21*$#(p-wds5@92yx%+ej=udi_goa4o_*bt#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -147,3 +148,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/home/mudia/portfolilo/static'

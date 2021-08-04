@@ -71,36 +71,6 @@ class RegisterForm(UserCreationForm):
             user.save()
             return user
             
-class PasswordChangeForm(PasswordChangeForm):
-    old_password = forms.CharField(label='Old password', widget=forms.PasswordInput(
-        attrs={'class':'form-control', 'placeholder':'Enter Password'}))
-    new_password1 = forms.CharField(label='New password', widget=forms.PasswordInput(
-        attrs={'class':'form-control', 'placeholder':'Enter Password'}))
-    new_password2= forms.CharField(label='Confirm Password', widget=forms.PasswordInput(
-        attrs={'class':'form-control', 'placeholder':'Enter Password'}))
-
-    botfield = forms.CharField(required=False, widget=forms.HiddenInput(),
-                               validators=[validators.MaxLengthValidator(0)])
-
-    class Meta():
-        model = User
-        fields = ['password1', 'password2']
-
-        # widgets = { 
-        #         'password1': forms.NumberInput(attrs={'class': 'form-control'}),
-        #         'password2': forms.NumberInput(attrs={'class': 'form-control'}),
-            
-        #     }
-
-    def save(self, commit=True):
-        user = super().save(commit=False)
-        user.password1 = self.cleaned_data['password1']
-        user.password2 = self.cleaned_data['password2']
-        
-        if commit:
-            user.save()
-            return user
-
 
 class CategoryForm(forms.ModelForm):
     cat_name = forms.CharField(label="Category Name*",
@@ -201,18 +171,12 @@ class PasswordChangeForm(PasswordChangeForm):
 
     class Meta():
         model = User
-        fields = ['password1', 'password2']
-
-        # widgets = { 
-        #         'password1': forms.NumberInput(attrs={'class': 'form-control'}),
-        #         'password2': forms.NumberInput(attrs={'class': 'form-control'}),
-            
-        #     }
+        fields = ['new_password1', 'new_password2']
 
     def save(self, commit=True):
         user = super().save(commit=False)
-        user.password1 = self.cleaned_data['password1']
-        user.password2 = self.cleaned_data['password2']
+        user.password1 = self.cleaned_data['new_password1']
+        user.password2 = self.cleaned_data['new_password2']
         
         if commit:
             user.save()

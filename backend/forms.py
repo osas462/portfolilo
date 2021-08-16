@@ -204,12 +204,29 @@ class EditPortfolio(forms.ModelForm):
     
     class Meta():
         model = Portfolio
-        fields = ['port_title', 'port_img', 'port_desription']
+        fields = ['port_title1', 'port_img1', 'port_title2', 'port_img2','port_title3', 'port_img3',
+        'port_title4', 'port_img4','port_title5', 'port_img5','port_title6', 'port_img6','port_title7', 'port_img7',
+        'port_title8', 'port_img8','port_title9', 'port_img9',]
 
         widgets={
-            'port_title': forms.TextInput(attrs={'class': 'form-control'}),
-            'port_img': forms.FileInput(attrs={'class': 'form-control'}),
-            'port_desription': forms.Textarea(attrs={'class': 'form-control'}),
+            'port_title1': forms.TextInput(attrs={'class': 'form-control'}),
+            'port_img1': forms.FileInput(attrs={'class': 'form-control'}),
+            'port_title2': forms.TextInput(attrs={'class': 'form-control'}),
+            'port_img2': forms.FileInput(attrs={'class': 'form-control'}),
+            'port_title3': forms.TextInput(attrs={'class': 'form-control'}),
+            'port_img3': forms.FileInput(attrs={'class': 'form-control'}),
+            'port_title4': forms.TextInput(attrs={'class': 'form-control'}),
+            'port_img4': forms.FileInput(attrs={'class': 'form-control'}),
+            'port_title5': forms.TextInput(attrs={'class': 'form-control'}),
+            'port_img5': forms.FileInput(attrs={'class': 'form-control'}),
+            'port_title6': forms.TextInput(attrs={'class': 'form-control'}),
+            'port_img6': forms.FileInput(attrs={'class': 'form-control'}),
+            'port_title7': forms.TextInput(attrs={'class': 'form-control'}),
+            'port_img7': forms.FileInput(attrs={'class': 'form-control'}),
+            'port_title8': forms.TextInput(attrs={'class': 'form-control'}),
+            'port_img8': forms.FileInput(attrs={'class': 'form-control'}),
+            'port_title9': forms.TextInput(attrs={'class': 'form-control'}),
+            'port_img9': forms.FileInput(attrs={'class': 'form-control'}),
         }
 
 

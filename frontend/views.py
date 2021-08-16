@@ -28,28 +28,7 @@ def index(request):
         'data':find
     
     }
-    if request.method == 'POST':
-        name = request.POST.get('text')   
-        email = request.POST.get('email')
-        text = request.POST.get('text')
-        subject = 'Contact Us Information'
-        context = {
-            'name':name,
-            'email':email,
-            'text':text
-        }
-        html_message = render_to_string('frontend/mail-template.html', context)
-        plain_message = strip_tags(html_message)
-        from_email = 'From <ogunburebusayo.j@gmail.com>'
-        send = mail.send_mail(subject, plain_message, from_email, [
-                    'ogunburebusayo.j@gmail.com', email], html_message=html_message)
-        if send:
-            messages.success(request, 'Email sent')
-        else:
-            messages.error(request, 'Mail not sent')
-
-      
-
+    
     return render(request, 'frontend/index.html',context )
     
     
@@ -58,31 +37,6 @@ def blog(request):
     blog_news = Blog.objects.all()
     blog_post = Blog.objects.all()
     context = {'person_page_obj':blog_post ,'most_recent':most_recent}
-    if request.method == 'POST':
-        name = request.POST.get('name')   
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-        subject = 'Contact Us Information'
-        context = {
-            'name':name,
-            'email':email,
-            'message':message
-        }
-        html_message = render_to_string('frontend/mail-template.html', context)
-        plain_message = strip_tags(html_message)
-        from_email = 'From <ogunburebusayo.j@gmail.com>'
-        send = mail.send_mail(subject, plain_message, from_email, [
-                    'ogunburebusayo.j@gmail.com', email], html_message=html_message)
-        if send:
-            messages.success(request, 'Email sent')
-        else:
-            messages.error(request, 'Mail not sent')
-
-        if request.method == 'POST':
-            email = request.POST["email"]
-            new_signup = Signup()
-            new_signup.email = email
-            new_signup.save()    
     
     return render(request, 'frontend/blog.html',context)
 
@@ -131,3 +85,26 @@ def blogdetails(request, pk):
 
           
     return render(request, 'frontend/blogdetails.html', {'sipst':single_post})
+    
+    
+def contact(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')   
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        subject = 'Contact Us Information'
+        context = {
+            'name':name,
+            'email':email,
+            'message':message
+        }
+        html_message = render_to_string('frontend/mail-template.html', context)
+        plain_message = strip_tags(html_message)
+        from_email = 'From <ogunburebusayo.j@gmail.com>'
+        send = mail.send_mail(subject, plain_message, from_email, [
+                    'ogunburebusayo.j@gmail.com', email], html_message=html_message)
+        if send:
+            messages.success(request, 'Email sent')
+        else:
+            messages.error(request, 'Mail not sent')
+    return render(request, 'frontend/contact.html')

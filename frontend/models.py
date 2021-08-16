@@ -8,9 +8,25 @@ from django.core.exceptions import ObjectDoesNotExist
 # Create your models here.
 
 class Portfolio(models.Model):
-    port_img = models.ImageField(blank=True, verbose_name='Profile Image', null=True, upload_to='uploads/', default='')
-    port_title = models.CharField(max_length=100, verbose_name='Profile Title')
-    port_desription = models.TextField(verbose_name='Description')
+    port_img1 = models.ImageField(blank=True, verbose_name='Profile Image1', null=True, upload_to='uploads/', default='')
+    port_title1 = models.CharField(max_length=100, verbose_name='Profile Title1')
+    port_img2 = models.ImageField(blank=True, verbose_name='Profile Image2', null=True, upload_to='uploads/', default='')
+    port_title2 = models.CharField(max_length=100, verbose_name='Profile Title2')
+    
+    port_img3 = models.ImageField(blank=True, verbose_name='Profile Image3', null=True, upload_to='uploads/', default='')
+    port_title3 = models.CharField(max_length=100, verbose_name='Profile Title3')
+    port_img4 = models.ImageField(blank=True, verbose_name='Profile Image4', null=True, upload_to='uploads/', default='')
+    port_title4 = models.CharField(max_length=100, verbose_name='Profile Title4')
+    port_img5 = models.ImageField(blank=True, verbose_name='Profile Image5', null=True, upload_to='uploads/', default='')
+    port_title5 = models.CharField(max_length=100, verbose_name='Profile Title5')
+    port_img6 = models.ImageField(blank=True, verbose_name='Profile Image6', null=True, upload_to='uploads/', default='')
+    port_title6 = models.CharField(max_length=100, verbose_name='Profile Title6')
+    port_img7 = models.ImageField(blank=True, verbose_name='Profile Image7', null=True, upload_to='uploads/', default='')
+    port_title7 = models.CharField(max_length=100, verbose_name='Profile Title7')
+    port_img8 = models.ImageField(blank=True, verbose_name='Profile Image8', null=True, upload_to='uploads/', default='')
+    port_title8 = models.CharField(max_length=100, verbose_name='Profile Title8')
+    port_img9 = models.ImageField(blank=True, verbose_name='Profile Image9', null=True, upload_to='uploads/', default='')
+    port_title9 = models.CharField(max_length=100, verbose_name='Profile Title9')
     
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
@@ -21,11 +37,36 @@ class Portfolio(models.Model):
 
 
     def __str__(self):
-        return self.port_title
+        return self.port_title1
 
-    def my_img(self):
-        if self.port_img:
-            return self.port_img.url
+    def my_img1(self):
+        if self.port_img1:
+            return self.port_img1.url
+    def my_img2(self):
+        if self.port_img2:
+            return self.port_img2.url
+    def my_img3(self):
+        if self.port_img3:
+            return self.port_img3.url
+    def my_img4(self):
+        if self.port_img4:
+            return self.port_img4.url
+    def my_img5(self):
+        if self.port_img5:
+            return self.port_img5.url
+    def my_img6(self):
+        if self.port_img6:
+            return self.port_img6.url
+    def my_img7(self):
+        if self.port_img7:
+            return self.port_img7.url
+    def my_img8(self):
+        if self.port_img8:
+            return self.port_img8.url
+    def my_img9(self):
+        if self.port_img9:
+            return self.port_img9.url
+    
 
 class Post(models.Model):
     

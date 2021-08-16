@@ -100,24 +100,99 @@ Mudia
   </div>
   <div class="container-fluid recent fh5co-portfolio" id="portfolio">
     <div class="container">
+      <h2>Portfolios</h2>
       <div class="row">
-        <h2>Portfolios</h2>
-        <div class="owl-carousel owl-carousel4 owl-theme">
-          {% if port %}
-          {% for a in port %}
-          <div>
-            <div class="card"> <img class="card-img" src="{{ a.my_img }}" alt=""  style="height:500px;">
-              <div class="card-img-overlay">
+        {% if port %}
+        {% for a in port %}
+        <div class="bx bx-1">
+          <div class="card"> <img class="card-img" src="{{ a.my_img1 }}" style="min-height: 300px; max-height: 300px;" alt="">
+            <div class="card-img-overlay"> <a href="#"><img src="../../static/frontend/img/heart.png" class="heart" alt="heart icon"></a>
+              <div class="bottom-text">
+                <h5 class="card-title">{{ a.port_title1}}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bx bx-2">
+          <div class="card"> <img class="card-img" src="{{ a.my_img2 }}" style="max-width: 500px; min-width: 500px; min-height: 300px; max-height: 300px;"  alt="">
+            <div class="card-img-overlay"> <a href="#"><img src="../../static/frontend/img/heart.png" class="heart" alt="heart icon"></a>
+              <div class="bottom-text">
+                <h5 class="card-title">{{ a.port_title2}}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bx bx-3">
+          <div class="card"> <img class="card-img" src="{{ a.my_img3 }}" style=" min-height: 300px; max-height: 300px; max-width: 300px; min-width: 300px;"  alt="">
+            <div class="card-img-overlay"> <a href="#"><img src="../../static/frontend/img/heart.png" class="heart" alt="heart icon"></a>
+              <div class="bottom-text">
+                <h5 class="card-title">{{ a.port_title3}}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+         
+        <div class="bx bx-middle">
+          <div class="bx bx-5">
+            <div class="card"> <img class="card-img" src="{{ a.my_img5 }}" style="max-width: 300px; min-width: 300px; min-height: 300px; max-height: 300px;"  alt="">
+              <div class="card-img-overlay"> <a href="#"><img src="../../static/frontend/img/heart.png" class="heart" alt="heart icon"></a>
                 <div class="bottom-text">
-                  <h5 class="card-title">{{a.port_title }}</h5> 
+                  <h5 class="card-title">{{ a.port_title5}}</h5>
                 </div>
               </div>
             </div>
           </div>
-          {% endfor %}
-          {% endif%}
-          
+          <div class="bx bx-5">
+            <div class="card"> <img class="card-img" src="{{ a.my_img9 }}" style="max-width: 400px; min-width: 400px; min-height: 300px; max-height: 300px;"  alt="">
+              <div class="card-img-overlay"> <a href="#"><img src="../../static/frontend/img/heart.png" class="heart" alt="heart icon"></a>
+                <div class="bottom-text">
+                  <h5 class="card-title">{{ a.port_title9}}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bx bx-6">
+            <div class="card"> <img class="card-img" src="{{ a.my_img6 }}" style="max-width: 300px; min-width: 300px; min-height: 300px; max-height: 300px;"  alt="">
+              <div class="card-img-overlay"> <a href="#"><img src="../../static/frontend/img/heart.png" class="heart" alt="heart icon"></a>
+                <div class="bottom-text">
+                  <h5 class="card-title">{{ a.port_title6}}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bx bx-4">
+            <div class="card"> <img class="card-img" src="{{ a.my_img4 }}" style=" min-height: 560px; max-height: 560px; max-width: 500px; min-width: 500px;"  alt="">
+              <div class="card-img-overlay"> <a href="#"><img src="../../static/frontend/img/heart.png" class="heart" alt="heart icon"></a>
+                <div class="bottom-text">
+                  <h5 class="card-title">{{ a.port_title4}}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="bx bx-7">
+              <div class="card"> <img class="card-img" src="{{ a.my_img7 }}" style="max-height: 300px; min-width: 300px; min-height: 250px; max-height: 250px;"  alt="">
+                <div class="card-img-overlay"> <a href="#"><img src="../../static/frontend/img/heart.png" class="heart" alt="heart icon"></a>
+                  <div class="bottom-text">
+                    <h5 class="card-title">{{ a.port_title7}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bx bx-8">
+              <div class="card"> <img class="card-img" src="{{ a.my_img8 }}" style="max-height: 500px; min-width: 500px; min-height: 300px; max-height: 300px;"  alt="">
+                <div class="card-img-overlay"> <a href="#"><img src="../../static/frontend/img/heart.png" class="heart" alt="heart icon"></a>
+                  <div class="bottom-text">
+                    <h5 class="card-title">{{ a.port_title8}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        {% endfor %}
+        {% endif %} 
       </div>
     </div>
   </div>
@@ -245,4 +320,5 @@ Mudia
       </div>
     </div>
   </div> -->
+  
  {% endblock %}
